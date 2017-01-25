@@ -1,12 +1,12 @@
 module.exports = {
-    entry: __dirname + "/src/main.js",
+    entry: __dirname + "/src/main.jsx",
     output: {
         path: __dirname + "/dist",
         filename: "like-button.js"
     },
     module: {
         loaders: [
-            {test: /\.js$/, loader: "babel-loader"}
+            {test: /\.jsx$/, loader: "babel"}
         ]
     }
 };
