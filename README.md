@@ -21,6 +21,21 @@ $ sudo npm install -g node-static
 ### webpack
 webpack.config.js に書く
 
+```js
+module.exports = {
+    entry: __dirname + "/src/main.js",
+    output: {
+        path: __dirname + "/dist",
+        filename: "like-button.js"
+    },
+    module: {
+        loaders: [
+            {test: /\.js$/, loader: "babel-loader"}
+        ]
+    }
+};
+```
+
 ### build task
 package.json に ビルドタスクをかく
 
