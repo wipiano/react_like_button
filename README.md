@@ -81,8 +81,7 @@ $ chmod u+x start-server.sh
 ```
 
 ### ブラウザでみてみる
-```
-http://localhost:12351/
-```
+`http://localhost:12351/`
 をみてみる
+
 console に hello ってでてたら OK!!!
