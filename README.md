@@ -26,13 +26,10 @@ package.json に ビルドタスクをかく
 
 ```json
 {
-    ...
     "scripts": {
-        ...
         "build": "rm -rf dist/*.js && webpack",
         "watch": "rm -rf dist/*.js && webpack -w"
     },
-    ...
 }
 ```
 
