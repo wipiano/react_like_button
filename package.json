@@ -1,0 +1,30 @@
+{
+  "name": "react_like_button",
+  "version": "1.0.0",
+  "description": "react で いいねボタン的な",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist/*.js && webpack",
+    "watch": "rm -rf dist/*.js && webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipiano/react_like_button.git"
+  },
+  "author": "wipiano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wipiano/react_like_button/issues"
+  },
+  "homepage": "https://github.com/wipiano/react_like_button#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
