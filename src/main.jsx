@@ -11,7 +11,9 @@ class LikeButton extends React.Component {
         super(props);
         // コンポーネントにカーソルが乗っているかの状態をもつ
         this.state = {
-            hovered: false
+            hovered: false,
+            count: 999,
+            liked: false
         }
     }
 
@@ -72,18 +74,35 @@ class LikeButton extends React.Component {
         this.setState({hovered: false})
     }
 
+    onClick() {
+        this.setState( {
+            // すでに押されてたら解除して -1
+            // 押されてなかったら押して +1
+            count: this.state.count + (this.state.liked ? -1 : 1),
+            liked: !this.state.liked
+        });
+    }
+
     getLikeStyle() {
         const styles = this.styles()
         return this.state.hovered ? {...styles.like, ...styles.likeHover} : styles.like;
+    }
+
+    getLabel() {
+        return this.state.liked ? "いいね！済み" : "いいね！";
     }
 
     render() {
         const styles = this.styles();
         return (
             <span style={styles.container}>
-                <span style={this.getLikeStyle()} onMouseEnter={::this.onMouseEnter} onMouseLeave={::this.onMouseLeave}>いいね！</span>
+                <span
+                    style={this.getLikeStyle()}
+                    onMouseEnter={::this.onMouseEnter}
+                    onMouseLeave={::this.onMouseLeave}
+                    onClick={::this.onClick}>{this.getLabel()}</span>
                 <span style={styles.counter}>
-                    <span style={styles.counterBefore}>{" "}</span>999
+                    <span style={styles.counterBefore}>{" "}</span>{this.state.count}
                 </span>
             </span>
         );
