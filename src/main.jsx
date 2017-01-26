@@ -7,6 +7,14 @@ import React from "react";
 import ReactDom from "react-dom";
 
 class LikeButton extends React.Component {
+    constructor(props) {
+        super(props);
+        // コンポーネントにカーソルが乗っているかの状態をもつ
+        this.state = {
+            hovered: false
+        }
+    }
+
     styles() {
         return {
             container: {
@@ -56,11 +64,21 @@ class LikeButton extends React.Component {
         };
     }
 
+    onMouseEnter() {
+        this.setState({hovered: true})
+    }
+
+    onMouseLeave() {
+        this.setState({hovered: false})
+    }
+
     render() {
         const styles = this.styles();
+        console.log(this.state);
+
         return (
             <span style={styles.container}>
-                <span style={styles.like}>いいね！</span>
+                <span style={styles.like} onMouseEnter={this.onMouseEnter.bind(this)} onMouseLeave={this.onMouseLeave.bind(this)}>いいね！</span>
                 <span style={styles.counter}>
                     <span style={styles.counterBefore}>{" "}</span>999
                 </span>
