@@ -72,13 +72,16 @@ class LikeButton extends React.Component {
         this.setState({hovered: false})
     }
 
+    getLikeStyle() {
+        const styles = this.styles()
+        return this.state.hovered ? {...styles.like, ...styles.likeHover} : styles.like;
+    }
+
     render() {
         const styles = this.styles();
-        console.log(this.state);
-
         return (
             <span style={styles.container}>
-                <span style={styles.like} onMouseEnter={::this.onMouseEnter} onMouseLeave={::this.onMouseLeave}>いいね！</span>
+                <span style={this.getLikeStyle()} onMouseEnter={::this.onMouseEnter} onMouseLeave={::this.onMouseLeave}>いいね！</span>
                 <span style={styles.counter}>
                     <span style={styles.counterBefore}>{" "}</span>999
                 </span>
