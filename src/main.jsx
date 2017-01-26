@@ -84,7 +84,9 @@ class LikeButton extends React.Component {
     }
 
     getLikeStyle() {
-        const styles = this.styles()
+        const styles = this.styles();
+        // ES7
+        // {...hoge, ...fuga} は hoge に fuga をマージした結果を返す
         return this.state.hovered ? {...styles.like, ...styles.likeHover} : styles.like;
     }
 
@@ -98,6 +100,8 @@ class LikeButton extends React.Component {
             <span style={styles.container}>
                 <span
                     style={this.getLikeStyle()}
+                    // ES7
+                    // ::bar は bar.bind(this) のシンタックスシュガー
                     onMouseEnter={::this.onMouseEnter}
                     onMouseLeave={::this.onMouseLeave}
                     onClick={::this.onClick}>{this.getLabel()}</span>
